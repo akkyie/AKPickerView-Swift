@@ -8,7 +8,7 @@ A simple yet customizable horizontal picker view.
 
 The __Swift__ port of [AKPickerView](https://github.com/Akkyie/AKPickerView).
 
-Works on 7 and 8.
+Works on iOS 7 and 8.
 
 Installation
 ------------
@@ -63,11 +63,11 @@ Usage
   self.pickerView.reloadData()
   ```
 
-Optional: You can use `AKPickerViewDelegate` methods to observe selection changes:
-```swift
-func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {}
-```
-Additionally, you can also use `UIScrollViewDelegate` methods to observe scrolling.
+1. Optional: You can use `AKPickerViewDelegate` methods to observe selection changes:
+  ```swift
+  func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {}
+  ```
+  Additionally, you can also use `UIScrollViewDelegate` methods to observe scrolling.
 
 For more detail, see the sample project.
 
