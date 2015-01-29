@@ -65,6 +65,7 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 
 	*/
 
+	/*
 	func pickerView(pickerView: AKPickerView, configureLabel label: UILabel, forItem item: Int) {
 		label.textColor = UIColor.lightGrayColor()
 		label.highlightedTextColor = UIColor.whiteColor()
@@ -78,6 +79,7 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 	func pickerView(pickerView: AKPickerView, marginForItem item: Int) -> CGSize {
 		return CGSizeMake(40, 20)
 	}
+	*/
 
 	/*
 
