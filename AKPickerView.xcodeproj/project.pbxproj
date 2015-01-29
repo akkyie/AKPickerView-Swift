@@ -13,6 +13,7 @@
 		6614C1431A7A6818008A1754 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6614C1421A7A6818008A1754 /* Images.xcassets */; };
 		6614C1461A7A6818008A1754 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6614C1441A7A6818008A1754 /* LaunchScreen.xib */; };
 		6614C1521A7A6818008A1754 /* AKPickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614C1511A7A6818008A1754 /* AKPickerViewTests.swift */; };
+		6614C15C1A7A6825008A1754 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614C15B1A7A6825008A1754 /* AKPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		6614C14B1A7A6818008A1754 /* AKPickerViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AKPickerViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6614C1501A7A6818008A1754 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6614C1511A7A6818008A1754 /* AKPickerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKPickerViewTests.swift; sourceTree = "<group>"; };
+		6614C15B1A7A6825008A1754 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		6614C1381A7A6818008A1754 /* AKPickerView */ = {
 			isa = PBXGroup;
 			children = (
+				6614C15D1A7A682B008A1754 /* AKPickerView */,
 				6614C13B1A7A6818008A1754 /* AppDelegate.swift */,
 				6614C13D1A7A6818008A1754 /* ViewController.swift */,
 				6614C13F1A7A6818008A1754 /* Main.storyboard */,
@@ -110,6 +113,14 @@
 				6614C1501A7A6818008A1754 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6614C15D1A7A682B008A1754 /* AKPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				6614C15B1A7A6825008A1754 /* AKPickerView.swift */,
+			);
+			name = AKPickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +225,7 @@
 			files = (
 				6614C13E1A7A6818008A1754 /* ViewController.swift in Sources */,
 				6614C13C1A7A6818008A1754 /* AppDelegate.swift in Sources */,
+				6614C15C1A7A6825008A1754 /* AKPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
