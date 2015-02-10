@@ -2,13 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AKPickerView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AKPickerViewSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,21 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQU-72-bNx" customClass="AKPickerView" customModule="AKPickerView" customModuleProvider="target">
-                                <rect key="frame" x="56" y="80" width="488" height="440"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObD-nA-s2m" customClass="AKPickerView" customModule="AKPickerViewSample" customModuleProvider="target">
+                                <rect key="frame" x="50" y="50" width="500" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="QQU-72-bNx" secondAttribute="trailing" constant="40" id="CUA-bi-4pc"/>
-                            <constraint firstItem="QQU-72-bNx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="I0w-nS-fgd"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QQU-72-bNx" secondAttribute="bottom" constant="80" id="Pdr-O7-azT"/>
-                            <constraint firstItem="QQU-72-bNx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="80" id="d4q-Ze-Mrv"/>
+                            <constraint firstAttribute="bottom" secondItem="ObD-nA-s2m" secondAttribute="bottom" constant="50" id="EA2-rP-igO"/>
+                            <constraint firstAttribute="trailing" secondItem="ObD-nA-s2m" secondAttribute="trailing" constant="50" id="F1P-dO-k3j"/>
+                            <constraint firstItem="ObD-nA-s2m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="Lcv-3m-cXL"/>
+                            <constraint firstItem="ObD-nA-s2m" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="wUZ-rX-1Sf"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="pickerView" destination="QQU-72-bNx" id="NvX-OG-RNh"/>
+                        <outlet property="pickerView" destination="ObD-nA-s2m" id="jA6-Io-oC7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

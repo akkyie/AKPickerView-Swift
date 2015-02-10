@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  AKPickerView
+//  AKPickerViewSample
 //
-//  Created by Akio Yasui on 1/29/15.
-//  Copyright (c) 2015 Akkyie Y. All rights reserved.
+//  Created by Akio Yasui on 2/10/15.
+//  Copyright (c) 2015 Akio Yasui. All rights reserved.
 //
 
 import UIKit
@@ -67,17 +67,17 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 
 	/*
 	func pickerView(pickerView: AKPickerView, configureLabel label: UILabel, forItem item: Int) {
-		label.textColor = UIColor.lightGrayColor()
-		label.highlightedTextColor = UIColor.whiteColor()
-		label.backgroundColor = UIColor(
-			hue: CGFloat(item) / CGFloat(self.titles.count),
-			saturation: 1.0,
-			brightness: 0.5,
-			alpha: 1.0)
+	label.textColor = UIColor.lightGrayColor()
+	label.highlightedTextColor = UIColor.whiteColor()
+	label.backgroundColor = UIColor(
+	hue: CGFloat(item) / CGFloat(self.titles.count),
+	saturation: 1.0,
+	brightness: 0.5,
+	alpha: 1.0)
 	}
 
 	func pickerView(pickerView: AKPickerView, marginForItem item: Int) -> CGSize {
-		return CGSizeMake(40, 20)
+	return CGSizeMake(40, 20)
 	}
 	*/
 
@@ -96,4 +96,3 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 	}
 	
 }
-
