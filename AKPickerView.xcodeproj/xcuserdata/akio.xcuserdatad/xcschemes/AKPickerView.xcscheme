@@ -34,6 +34,20 @@
                ReferencedContainer = "container:AKPickerView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "66F601D41A8A0C140006FA7E"
+               BuildableName = "AKPickerView-dylibTests.xctest"
+               BlueprintName = "AKPickerView-dylibTests"
+               ReferencedContainer = "container:AKPickerView.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "6614C14A1A7A6818008A1754"
                BuildableName = "AKPickerViewTests.xctest"
                BlueprintName = "AKPickerViewTests"
+               ReferencedContainer = "container:AKPickerView.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "66F601D41A8A0C140006FA7E"
+               BuildableName = "AKPickerView-dylibTests.xctest"
+               BlueprintName = "AKPickerView-dylibTests"
                ReferencedContainer = "container:AKPickerView.xcodeproj">
             </BuildableReference>
          </TestableReference>

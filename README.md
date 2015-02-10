@@ -13,9 +13,28 @@ Works on iOS 7 and 8.
 Installation
 ------------
 
-Simply add the AKPickerView.swift into your Xcode project.
+###[CocoaPods](http://cocoapods.org/):
+In your `Podfile`:
+```
+pod "AKPickerView-Swift"
+```
+And in your `*.swift`:
+```swift
+import AKPickerView_Swift
+```
 
-(Wait for CocoaPods/Carthage support)
+###[Carthage](https://github.com/Carthage/Carthage):
+In your `Cartfile`:
+```
+github "Akkyie/AKPickerView-Swift"
+```
+And in your `*.swift`:
+```swift
+import AKPickerView
+```
+
+###Manual Install
+Add `AKPickerView.swift` into your Xcode project.
 
 Usage
 -----
