@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66A74BA21A95074E009AB290 /* AKPickerView-Swift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 66A74BA11A95074E009AB290 /* AKPickerView-Swift.podspec */; };
 		66F602671A8A167C0006FA7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F602661A8A167C0006FA7E /* AppDelegate.swift */; };
 		66F602691A8A167C0006FA7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F602681A8A167C0006FA7E /* ViewController.swift */; };
 		66F6026C1A8A167C0006FA7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F6026A1A8A167C0006FA7E /* Main.storyboard */; };
@@ -14,10 +15,10 @@
 		66F602711A8A167C0006FA7E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66F6026F1A8A167C0006FA7E /* LaunchScreen.xib */; };
 		66F602891A8A16E60006FA7E /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F602881A8A16E60006FA7E /* AKPickerView.swift */; };
 		66F602941A8A17220006FA7E /* AKPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 66F602931A8A17220006FA7E /* AKPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		66F602AB1A8A183C0006FA7E /* AKPickerView-Swift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 66F602AA1A8A183C0006FA7E /* AKPickerView-Swift.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66A74BA11A95074E009AB290 /* AKPickerView-Swift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "AKPickerView-Swift.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		66F602611A8A167C0006FA7E /* AKPickerViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKPickerViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F602651A8A167C0006FA7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66F602661A8A167C0006FA7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +30,6 @@
 		66F6028F1A8A17220006FA7E /* AKPickerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AKPickerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F602921A8A17220006FA7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66F602931A8A17220006FA7E /* AKPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKPickerView.h; sourceTree = "<group>"; };
-		66F602AA1A8A183C0006FA7E /* AKPickerView-Swift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "AKPickerView-Swift.podspec"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +53,7 @@
 		66F602581A8A167C0006FA7E = {
 			isa = PBXGroup;
 			children = (
+				66A74BA11A95074E009AB290 /* AKPickerView-Swift.podspec */,
 				66F602901A8A17220006FA7E /* AKPickerView */,
 				66F602631A8A167C0006FA7E /* AKPickerViewSample */,
 				66F602621A8A167C0006FA7E /* Products */,
@@ -92,7 +93,6 @@
 		66F602901A8A17220006FA7E /* AKPickerView */ = {
 			isa = PBXGroup;
 			children = (
-				66F602AA1A8A183C0006FA7E /* AKPickerView-Swift.podspec */,
 				66F602931A8A17220006FA7E /* AKPickerView.h */,
 				66F602881A8A16E60006FA7E /* AKPickerView.swift */,
 				66F602911A8A17220006FA7E /* Supporting Files */,
@@ -199,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66F6026C1A8A167C0006FA7E /* Main.storyboard in Resources */,
+				66A74BA21A95074E009AB290 /* AKPickerView-Swift.podspec in Resources */,
 				66F602711A8A167C0006FA7E /* LaunchScreen.xib in Resources */,
 				66F6026E1A8A167C0006FA7E /* Images.xcassets in Resources */,
 			);
@@ -208,7 +209,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66F602AB1A8A183C0006FA7E /* AKPickerView-Swift.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
