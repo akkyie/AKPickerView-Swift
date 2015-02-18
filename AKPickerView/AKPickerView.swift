@@ -222,40 +222,40 @@ private class AKPickerViewDelegateIntercepter: NSObject, UICollectionViewDelegat
 // MARK: - AKPickerView
 // TODO: Make these delegate conformation private
 /**
-Horizontal picker view. This is just a subclass of UIView, contains UICollectionView.
+Horizontal picker view. This is just a subclass of UIView, contains a UICollectionView.
 */
 public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AKCollectionViewLayoutDelegate {
 
 	// MARK: - Properties
 	// MARK: Readwrite Properties
 	/// Readwrite. Data source of picker view.
-	var dataSource: AKPickerViewDataSource? = nil
+	public var dataSource: AKPickerViewDataSource? = nil
 	/// Readwrite. Delegate of picker view.
-	var delegate: AKPickerViewDelegate? = nil {
+	public var delegate: AKPickerViewDelegate? = nil {
 		didSet(delegate) {
 			self.intercepter.delegate = delegate
 		}
 	}
 	/// Readwrite. A font which used in NOT selected cells.
-	lazy var font = UIFont.systemFontOfSize(20)
+	public lazy var font = UIFont.systemFontOfSize(20)
 	/// Readwrite. A font which used in selected cells.
-	lazy var highlightedFont = UIFont.boldSystemFontOfSize(20)
+	public lazy var highlightedFont = UIFont.boldSystemFontOfSize(20)
 	/// Readwrite. A color of the text on NOT selected cells.
-	lazy var textColor = UIColor.darkGrayColor()
+	public lazy var textColor = UIColor.darkGrayColor()
 	/// Readwrite. A color of the text on selected cells.
-	lazy var highlightedTextColor = UIColor.blackColor()
+	public lazy var highlightedTextColor = UIColor.blackColor()
 	/// Readwrite. A float value which indicates the spacing between cells.
-	var interitemSpacing: CGFloat = 0.0
+	public var interitemSpacing: CGFloat = 0.0
 	/// Readwrite. A float value which determines the perspective representation which used when using AKPickerViewStyle.Wheel style.
-	var viewDepth: CGFloat = 1000.0
+	public var viewDepth: CGFloat = 1000.0
 	/// Readwrite. The style of the picker view. See AKPickerViewStyle.
-	var pickerViewStyle = AKPickerViewStyle.Wheel
+	public var pickerViewStyle = AKPickerViewStyle.Wheel
 
 	// MARK: Readonly Properties
 	/// Readonly. Index of currently selected item.
 	private(set) var selectedItem: Int = 0
 	/// Readonly. The point at which the origin of the content view is offset from the origin of the picker view.
-	var contentOffset: CGPoint {
+	public var contentOffset: CGPoint {
 		get {
 			return self.collectionView.contentOffset
 		}
@@ -395,7 +395,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	/**
 	Reload the picker view's contents and styles. Call this method always after any property is changed.
 	*/
-	func reloadData() {
+	public func reloadData() {
 		self.invalidateIntrinsicContentSize()
 		self.collectionView.collectionViewLayout.invalidateLayout()
 		self.collectionView.reloadData()
@@ -408,7 +408,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	:param: item     An integer value which indicates the index of cell.
 	:param: animated True if the scrolling should be animated, false if it should be immediate.
 	*/
-	func scrollToItem(item: Int, animated: Bool = false) {
+	public func scrollToItem(item: Int, animated: Bool = false) {
 		switch self.pickerViewStyle {
 		case .Flat:
 			self.collectionView.scrollToItemAtIndexPath(
@@ -432,7 +432,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	:param: item     An integer value which indicates the index of cell.
 	:param: animated True if the scrolling should be animated, false if it should be immediate.
 	*/
-	func selectItem(item: Int, animated: Bool = false) {
+	public func selectItem(item: Int, animated: Bool = false) {
 		self.selectItem(item, animated: animated, notifySelection: true)
 	}
 
