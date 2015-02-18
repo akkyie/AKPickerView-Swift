@@ -492,8 +492,8 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	}
 
 	public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(NSStringFromClass(AKCollectionViewCell.self), forIndexPath: indexPath) as AKCollectionViewCell
-		if let title = self.dataSource?.pickerView?(self, titleForItem: indexPath.item) {
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(NSStringFromClass(AKCollectionViewCell.self), forIndexPath: indexPath) as! AKCollectionViewCell
+		if let title = self.dataSource?.pickerView?(self, titleForItem: indexPath.item) as? String {
 			cell.label.text = title
 			cell.label.textColor = self.textColor
 			cell.label.highlightedTextColor = self.highlightedTextColor
@@ -511,7 +511,6 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 			cell.imageView.image = image
 		}
 		cell._selected = (indexPath.item == self.selectedItem)
-
 		return cell
 	}
 
