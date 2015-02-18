@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.version = '0.1.3'
   s.summary = 'A simple yet customizable horizontal picker view.'
 
-  s.description  = 'A simple yet customizable horizontal picker view.'
+  s.description  = 'A simple yet customizable horizontal picker view. Works on iOS 7 / 8'
 
   s.license = 'MIT'
 
