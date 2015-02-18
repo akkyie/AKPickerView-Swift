@@ -26,8 +26,8 @@ Protocols to specify the number and type of contents.
 */
 @objc public protocol AKPickerViewDataSource {
 	func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int
-	optional func pickerView(pickerView: AKPickerView, titleForItem item:Int) -> NSString
-	optional func pickerView(pickerView: AKPickerView, imageForItem item:Int) -> UIImage
+	optional func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String
+	optional func pickerView(pickerView: AKPickerView, imageForItem item: Int) -> UIImage
 }
 
 // MARK: AKPickerViewDelegate
@@ -36,9 +36,9 @@ Protocols to specify the attitude when user selected an item,
 and customize the appearance of labels.
 */
 @objc public protocol AKPickerViewDelegate: UIScrollViewDelegate {
-	optional func pickerView(pickerView: AKPickerView, didSelectItem item:Int)
-	optional func pickerView(pickerView: AKPickerView, marginForItem item:Int) -> CGSize
-	optional func pickerView(pickerView: AKPickerView, configureLabel label:UILabel, forItem item:Int)
+	optional func pickerView(pickerView: AKPickerView, didSelectItem item: Int)
+	optional func pickerView(pickerView: AKPickerView, marginForItem item: Int) -> CGSize
+	optional func pickerView(pickerView: AKPickerView, configureLabel label: UILabel, forItem item: Int)
 }
 
 // MARK: - Private Classes and Protocols
@@ -114,7 +114,7 @@ private class AKCollectionViewCell: UICollectionViewCell {
 
 // MARK: AKCollectionViewLayout
 /**
-Private. A subclass of UICollectionViewFlowLayout used in AKPickerView's collection view.
+Private. A subclass of UICollectionViewFlowLayout used in the collection view.
 */
 private class AKCollectionViewLayout: UICollectionViewFlowLayout {
 	var delegate: AKCollectionViewLayoutDelegate!
@@ -493,7 +493,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 
 	public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(NSStringFromClass(AKCollectionViewCell.self), forIndexPath: indexPath) as! AKCollectionViewCell
-		if let title = self.dataSource?.pickerView?(self, titleForItem: indexPath.item) as? String {
+		if let title = self.dataSource?.pickerView?(self, titleForItem: indexPath.item) {
 			cell.label.text = title
 			cell.label.textColor = self.textColor
 			cell.label.highlightedTextColor = self.highlightedTextColor
