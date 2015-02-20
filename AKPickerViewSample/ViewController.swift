@@ -24,6 +24,7 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 		self.pickerView.interitemSpacing = 20.0
 		self.pickerView.viewDepth = 1000.0
 		self.pickerView.pickerViewStyle = .Wheel
+		self.pickerView.maskDisabled = false
 		self.pickerView.reloadData()
 	}
 
