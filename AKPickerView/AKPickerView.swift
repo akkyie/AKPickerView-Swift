@@ -323,12 +323,12 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		self.maskDisabled = self.maskDisabled == nil ? false : self.maskDisabled
 	}
 
-	override init() {
+	public override init() {
 		super.init()
 		self.initialize()
 	}
 
-	override init(frame: CGRect) {
+	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.initialize()
 	}
