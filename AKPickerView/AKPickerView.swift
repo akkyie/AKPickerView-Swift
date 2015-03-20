@@ -96,8 +96,8 @@ private class AKCollectionViewCell: UICollectionViewCell {
 		self.contentView.addSubview(self.imageView)
 	}
 
-	override init() {
-		super.init()
+	init() {
+		super.init(frame: CGRectZero)
 		self.initialize()
 	}
 
@@ -307,12 +307,12 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		self.collectionView.layer.mask = maskLayer
 	}
 
-	override init() {
-		super.init()
+	public init() {
+		super.init(frame: CGRectZero)
 		self.initialize()
 	}
 
-	override init(frame: CGRect) {
+	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.initialize()
 	}
