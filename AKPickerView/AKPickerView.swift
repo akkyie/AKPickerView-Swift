@@ -323,12 +323,12 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		self.maskDisabled = self.maskDisabled == nil ? false : self.maskDisabled
 	}
 
-	override init() {
+	public override init() {
 		super.init()
 		self.initialize()
 	}
 
-	override init(frame: CGRect) {
+	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.initialize()
 	}
@@ -475,8 +475,9 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		switch self.pickerViewStyle {
 		case .Flat:
 			let center = self.convertPoint(self.collectionView.center, toView: self.collectionView)
-			let indexPath = self.collectionView.indexPathForItemAtPoint(center)
-			self.selectItem(indexPath!.item, animated: true, notifySelection: true)
+			if let indexPath = self.collectionView.indexPathForItemAtPoint(center) {
+				self.selectItem(indexPath.item, animated: true, notifySelection: true)
+			}
 		case .Wheel:
 			if let numberOfItems = self.dataSource?.numberOfItemsInPickerView(self) {
 				for i in 0 ..< numberOfItems {
