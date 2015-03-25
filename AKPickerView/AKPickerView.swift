@@ -475,9 +475,9 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		switch self.pickerViewStyle {
 		case .Flat:
 			let center = self.convertPoint(self.collectionView.center, toView: self.collectionView)
-            if let indexPath = self.collectionView.indexPathForItemAtPoint(center) {
-              self.selectItem(indexPath.item, animated: true, notifySelection: true)   
-            }
+			if let indexPath = self.collectionView.indexPathForItemAtPoint(center) {
+				self.selectItem(indexPath.item, animated: true, notifySelection: true)
+			}
 		case .Wheel:
 			if let numberOfItems = self.dataSource?.numberOfItemsInPickerView(self) {
 				for i in 0 ..< numberOfItems {
