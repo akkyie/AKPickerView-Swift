@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		66A74BA21A95074E009AB290 /* AKPickerView-Swift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 66A74BA11A95074E009AB290 /* AKPickerView-Swift.podspec */; };
+		66C001461AD380FC005F2650 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F602881A8A16E60006FA7E /* AKPickerView.swift */; };
 		66F602671A8A167C0006FA7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F602661A8A167C0006FA7E /* AppDelegate.swift */; };
 		66F602691A8A167C0006FA7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F602681A8A167C0006FA7E /* ViewController.swift */; };
 		66F6026C1A8A167C0006FA7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F6026A1A8A167C0006FA7E /* Main.storyboard */; };
@@ -229,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66C001461AD380FC005F2650 /* AKPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +370,7 @@
 				INFOPLIST_FILE = AKPickerView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -386,6 +389,7 @@
 				INFOPLIST_FILE = AKPickerView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
