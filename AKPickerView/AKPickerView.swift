@@ -189,8 +189,8 @@ Private. Used to hook UICollectionViewDelegate and throw it AKPickerView,
 and if it conforms to UIScrollViewDelegate, also throw it to AKPickerView's delegate.
 */
 private class AKPickerViewDelegateIntercepter: NSObject, UICollectionViewDelegate {
-	var pickerView: AKPickerView
-	var delegate: UIScrollViewDelegate?
+	weak var pickerView: AKPickerView?
+	weak var delegate: UIScrollViewDelegate?
 
 	init(pickerView: AKPickerView, delegate: UIScrollViewDelegate?) {
 		self.pickerView = pickerView
@@ -198,7 +198,7 @@ private class AKPickerViewDelegateIntercepter: NSObject, UICollectionViewDelegat
 	}
 
 	private override func forwardingTargetForSelector(aSelector: Selector) -> AnyObject? {
-		if self.pickerView.respondsToSelector(aSelector) {
+		if self.pickerView!.respondsToSelector(aSelector) {
 			return self.pickerView
 		} else if self.delegate != nil && self.delegate!.respondsToSelector(aSelector) {
 			return self.delegate
@@ -208,7 +208,7 @@ private class AKPickerViewDelegateIntercepter: NSObject, UICollectionViewDelegat
 	}
 
 	private override func respondsToSelector(aSelector: Selector) -> Bool {
-		if self.pickerView.respondsToSelector(aSelector) {
+		if self.pickerView!.respondsToSelector(aSelector) {
 			return true
 		} else if self.delegate != nil && self.delegate!.respondsToSelector(aSelector) {
 			return true
@@ -229,9 +229,9 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	// MARK: - Properties
 	// MARK: Readwrite Properties
 	/// Readwrite. Data source of picker view.
-	public var dataSource: AKPickerViewDataSource? = nil
+	public weak var dataSource: AKPickerViewDataSource? = nil
 	/// Readwrite. Delegate of picker view.
-	public var delegate: AKPickerViewDelegate? = nil {
+	public weak var delegate: AKPickerViewDelegate? = nil {
 		didSet(delegate) {
 			self.intercepter.delegate = delegate
 		}
