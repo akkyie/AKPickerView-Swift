@@ -173,9 +173,11 @@ private class AKCollectionViewLayout: UICollectionViewFlowLayout {
 			return super.layoutAttributesForElementsInRect(rect)
 		case .Wheel:
 			var attributes = [AnyObject]()
-			for i in 0 ..< self.collectionView!.numberOfItemsInSection(0) {
-				let indexPath = NSIndexPath(forItem: i, inSection: 0)
-				attributes.append(self.layoutAttributesForItemAtIndexPath(indexPath))
+			if self.collectionView!.numberOfSections() > 0 {
+				for i in 0 ..< self.collectionView!.numberOfItemsInSection(0) {
+					let indexPath = NSIndexPath(forItem: i, inSection: 0)
+					attributes.append(self.layoutAttributesForItemAtIndexPath(indexPath))
+				}
 			}
 			return attributes
 		}
@@ -346,8 +348,10 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 
 	public override func layoutSubviews() {
 		super.layoutSubviews()
-		self.collectionView.collectionViewLayout = self.collectionViewLayout
-		self.scrollToItem(self.selectedItem, animated: false)
+		if self.dataSource != nil && self.dataSource!.numberOfItemsInPickerView(self) > 0 {
+			self.collectionView.collectionViewLayout = self.collectionViewLayout
+			self.scrollToItem(self.selectedItem, animated: false)
+		}
 		self.collectionView.layer.mask?.frame = self.collectionView.bounds
 	}
 
@@ -411,7 +415,9 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		self.invalidateIntrinsicContentSize()
 		self.collectionView.collectionViewLayout.invalidateLayout()
 		self.collectionView.reloadData()
-		self.selectItem(self.selectedItem, animated: false, notifySelection: false)
+		if self.dataSource != nil && self.dataSource!.numberOfItemsInPickerView(self) > 0 {
+			self.selectItem(self.selectedItem, animated: false, notifySelection: false)
+		}
 	}
 
 	/**
@@ -497,7 +503,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 
 	// MARK: UICollectionViewDataSource
 	public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-		return 1
+		return self.dataSource != nil && self.dataSource!.numberOfItemsInPickerView(self) > 0 ? 1 : 0
 	}
 
 	public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
