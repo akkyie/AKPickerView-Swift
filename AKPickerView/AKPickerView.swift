@@ -281,7 +281,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 
 	// MARK: Readonly Properties
 	/// Readonly. Index of currently selected item.
-	private(set) var selectedItem: Int = 0
+	private(set) public var selectedItem: Int = 0
 	/// Readonly. The point at which the origin of the content view is offset from the origin of the picker view.
 	public var contentOffset: CGPoint {
 		get {
