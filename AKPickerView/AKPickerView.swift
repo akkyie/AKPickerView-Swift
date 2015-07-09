@@ -59,16 +59,26 @@ private class AKCollectionViewCell: UICollectionViewCell {
 	var imageView: UIImageView!
 	var font = UIFont.systemFontOfSize(UIFont.systemFontSize())
 	var highlightedFont = UIFont.systemFontOfSize(UIFont.systemFontSize())
-	var _selected: Bool = false {
-		didSet(selected) {
-			let animation = CATransition()
-			animation.type = kCATransitionFade
-			animation.duration = 0.15
-			self.label.layer.addAnimation(animation, forKey: "")
-			self.label.font = self.selected ? self.highlightedFont : self.font
-		}
-	}
 
+    var lineView: UIView!
+    
+    override var selected: Bool {
+        didSet {
+            let animation = CATransition()
+            animation.type = kCATransitionFade
+            animation.duration = 0.15
+            self.label.layer.addAnimation(animation, forKey: "")
+            self.label.font = self.selected ? self.highlightedFont : self.font
+            lineView.layer.addAnimation(animation, forKey: "animation.alpha")
+            lineView.alpha = selected ? 1.0 : 0.0
+        }
+    }
+
+    func setHighlightedTextColor(color: UIColor) {
+        label.highlightedTextColor = color
+        lineView.backgroundColor = color
+    }
+    
 	func initialize() {
 		self.layer.doubleSided = false
 		self.layer.shouldRasterize = true
@@ -88,6 +98,16 @@ private class AKCollectionViewCell: UICollectionViewCell {
 			.FlexibleBottomMargin |
 			.FlexibleRightMargin;
 		self.contentView.addSubview(self.label)
+
+        lineView = UIView(frame: CGRect(origin: CGPoint(x: 0, y: contentView.bounds.size.height - 2), size: CGSize(width: contentView.bounds.size.width, height: 2)))
+        lineView.alpha = 0.0
+        lineView.backgroundColor = UIColor.blueColor()
+        self.lineView.autoresizingMask =
+            .FlexibleTopMargin |
+            .FlexibleLeftMargin |
+            .FlexibleBottomMargin |
+            .FlexibleRightMargin;
+        self.contentView.addSubview(self.lineView)
 
 		self.imageView = UIImageView(frame: self.contentView.bounds)
 		self.imageView.backgroundColor = UIColor.clearColor()
@@ -513,9 +533,9 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(NSStringFromClass(AKCollectionViewCell.self), forIndexPath: indexPath) as! AKCollectionViewCell
 		if let title = self.dataSource?.pickerView?(self, titleForItem: indexPath.item) {
-			cell.label.text = title
+			cell.setHighlightedTextColor(highlightedTextColor)
+            cell.label.text = title
 			cell.label.textColor = self.textColor
-			cell.label.highlightedTextColor = self.highlightedTextColor
 			cell.label.font = self.font
 			cell.font = self.font
 			cell.highlightedFont = self.highlightedFont
@@ -529,7 +549,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		} else if let image = self.dataSource?.pickerView?(self, imageForItem: indexPath.item) {
 			cell.imageView.image = image
 		}
-		cell._selected = (indexPath.item == self.selectedItem)
+		cell.selected = (indexPath.item == self.selectedItem)
 		return cell
 	}
 
