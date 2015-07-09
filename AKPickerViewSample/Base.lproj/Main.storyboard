@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,20 +17,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObD-nA-s2m" customClass="AKPickerView" customModule="AKPickerViewSample" customModuleProvider="target">
-                                <rect key="frame" x="50" y="50" width="500" height="500"/>
+                                <rect key="frame" x="0.0" y="278" width="600" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="b37-Eq-ccD"/>
+                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG9-as-tLh">
+                                <rect key="frame" x="10" y="285" width="22" height="30"/>
+                                <color key="backgroundColor" red="0.4039215686" green="0.36470588240000001" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="C8f-Cc-Cq9"/>
+                                    <constraint firstAttribute="width" constant="22" id="vaN-iV-I54"/>
+                                </constraints>
+                                <state key="normal" title="L">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="scrollToLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sv6-Vv-p0R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbN-hL-Bq1">
+                                <rect key="frame" x="568" y="285" width="22" height="30"/>
+                                <color key="backgroundColor" red="0.4039215686" green="0.36470588240000001" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IQb-3W-TnB"/>
+                                    <constraint firstAttribute="width" constant="22" id="qin-ke-mYJ"/>
+                                </constraints>
+                                <state key="normal" title="R">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="scrollToRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A6l-zb-m6i"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ObD-nA-s2m" secondAttribute="bottom" constant="50" id="EA2-rP-igO"/>
-                            <constraint firstAttribute="trailing" secondItem="ObD-nA-s2m" secondAttribute="trailing" constant="50" id="F1P-dO-k3j"/>
-                            <constraint firstItem="ObD-nA-s2m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="Lcv-3m-cXL"/>
-                            <constraint firstItem="ObD-nA-s2m" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="wUZ-rX-1Sf"/>
+                            <constraint firstItem="ObD-nA-s2m" firstAttribute="centerY" secondItem="zbN-hL-Bq1" secondAttribute="centerY" id="DBp-F6-MjY"/>
+                            <constraint firstAttribute="trailing" secondItem="ObD-nA-s2m" secondAttribute="trailing" id="F1P-dO-k3j"/>
+                            <constraint firstItem="ObD-nA-s2m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lcv-3m-cXL"/>
+                            <constraint firstItem="ObD-nA-s2m" firstAttribute="trailing" secondItem="zbN-hL-Bq1" secondAttribute="trailing" constant="10" id="ZnI-i5-4rP"/>
+                            <constraint firstItem="JG9-as-tLh" firstAttribute="leading" secondItem="ObD-nA-s2m" secondAttribute="leading" constant="10" id="fLf-73-M8F"/>
+                            <constraint firstAttribute="centerY" secondItem="ObD-nA-s2m" secondAttribute="centerY" id="hhN-Dm-f6w"/>
+                            <constraint firstItem="JG9-as-tLh" firstAttribute="centerY" secondItem="ObD-nA-s2m" secondAttribute="centerY" id="vr5-tU-3Z6"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="leftArrow" destination="JG9-as-tLh" id="hko-Cs-yM9"/>
                         <outlet property="pickerView" destination="ObD-nA-s2m" id="jA6-Io-oC7"/>
+                        <outlet property="rigthArrow" destination="zbN-hL-Bq1" id="HEt-np-2Ja"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
