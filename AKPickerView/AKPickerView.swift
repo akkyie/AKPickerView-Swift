@@ -415,7 +415,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		self.invalidateIntrinsicContentSize()
 		self.collectionView.collectionViewLayout.invalidateLayout()
 		self.collectionView.reloadData()
-		if self.dataSource != nil && self.dataSource!.numberOfItemsInPickerView(self) > 0 {
+		if self.dataSource != nil && self.dataSource!.numberOfItemsInPickerView(self) > 0 && self.dataSource!.numberOfItemsInPickerView(self) > self.selectedItem {
 			self.selectItem(self.selectedItem, animated: false, notifySelection: false)
 		}
 	}
