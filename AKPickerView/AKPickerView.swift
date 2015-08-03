@@ -240,18 +240,24 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	}
 	/// Readwrite. A font which used in NOT selected cells.
 	public lazy var font = UIFont.systemFontOfSize(20)
+    
 	/// Readwrite. A font which used in selected cells.
 	public lazy var highlightedFont = UIFont.boldSystemFontOfSize(20)
+    
 	/// Readwrite. A color of the text on NOT selected cells.
-	public lazy var textColor = UIColor.darkGrayColor()
+    @IBInspectable public lazy var textColor: UIColor = UIColor.darkGrayColor()
+    
 	/// Readwrite. A color of the text on selected cells.
-	public lazy var highlightedTextColor = UIColor.blackColor()
+    @IBInspectable public lazy var highlightedTextColor: UIColor = UIColor.blackColor()
+    
 	/// Readwrite. A float value which indicates the spacing between cells.
-	public var interitemSpacing: CGFloat = 0.0
+    @IBInspectable public var interitemSpacing: CGFloat = 0.0
+    
 	/// Readwrite. The style of the picker view. See AKPickerViewStyle.
 	public var pickerViewStyle = AKPickerViewStyle.Wheel
+    
 	/// Readwrite. A float value which determines the perspective representation which used when using AKPickerViewStyle.Wheel style.
-	public var viewDepth: CGFloat = 1000.0 {
+	@IBInspectable public var viewDepth: CGFloat = 1000.0 {
 		didSet {
 			self.collectionView.layer.sublayerTransform = self.viewDepth > 0.0 ? {
 				var transform = CATransform3DIdentity;
@@ -261,7 +267,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		}
 	}
 	/// Readwrite. A boolean value indicates whether the mask is disabled.
-	public var maskDisabled: Bool! = nil {
+	@IBInspectable public var maskDisabled: Bool! = nil {
 		didSet {
 			self.collectionView.layer.mask = self.maskDisabled == true ? nil : {
 				let maskLayer = CAGradientLayer()
