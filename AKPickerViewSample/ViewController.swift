@@ -21,8 +21,6 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 
 		self.pickerView.font = UIFont(name: "HelveticaNeue-Light", size: 20)!
 		self.pickerView.highlightedFont = UIFont(name: "HelveticaNeue", size: 20)!
-		self.pickerView.interitemSpacing = 20.0
-		self.pickerView.viewDepth = 1000.0
 		self.pickerView.pickerViewStyle = .Wheel
 		self.pickerView.maskDisabled = false
 		self.pickerView.reloadData()
