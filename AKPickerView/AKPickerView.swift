@@ -240,22 +240,22 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	}
 	/// Readwrite. A font which used in NOT selected cells.
 	public lazy var font = UIFont.systemFontOfSize(20)
-    
+
 	/// Readwrite. A font which used in selected cells.
 	public lazy var highlightedFont = UIFont.boldSystemFontOfSize(20)
-    
+
 	/// Readwrite. A color of the text on NOT selected cells.
-    @IBInspectable public lazy var textColor: UIColor = UIColor.darkGrayColor()
-    
+	@IBInspectable public lazy var textColor: UIColor = UIColor.darkGrayColor()
+
 	/// Readwrite. A color of the text on selected cells.
-    @IBInspectable public lazy var highlightedTextColor: UIColor = UIColor.blackColor()
-    
+	@IBInspectable public lazy var highlightedTextColor: UIColor = UIColor.blackColor()
+
 	/// Readwrite. A float value which indicates the spacing between cells.
-    @IBInspectable public var interitemSpacing: CGFloat = 0.0
-    
+	@IBInspectable public var interitemSpacing: CGFloat = 0.0
+
 	/// Readwrite. The style of the picker view. See AKPickerViewStyle.
 	public var pickerViewStyle = AKPickerViewStyle.Wheel
-    
+
 	/// Readwrite. A float value which determines the perspective representation which used when using AKPickerViewStyle.Wheel style.
 	@IBInspectable public var viewDepth: CGFloat = 1000.0 {
 		didSet {
@@ -263,7 +263,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 				var transform = CATransform3DIdentity;
 				transform.m34 = -1.0 / self.viewDepth;
 				return transform;
-			}() : CATransform3DIdentity;
+				}() : CATransform3DIdentity;
 		}
 	}
 	/// Readwrite. A boolean value indicates whether the mask is disabled.
@@ -281,7 +281,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 				maskLayer.startPoint = CGPointMake(0.0, 0.0)
 				maskLayer.endPoint = CGPointMake(1.0, 0.0)
 				return maskLayer
-			}()
+				}()
 		}
 	}
 
