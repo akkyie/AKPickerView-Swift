@@ -51,7 +51,7 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 	// MARK: - AKPickerViewDelegate
 
 	func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
-		println("Your favorite city is \(self.titles[item])")
+		print("Your favorite city is \(self.titles[item])")
 	}
 
 	/*
