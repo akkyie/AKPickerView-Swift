@@ -146,7 +146,7 @@ private class AKCollectionViewLayout: UICollectionViewFlowLayout {
 	}
 
 	private override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        if let attributes = super.layoutAttributesForItemAtIndexPath(indexPath) {
+        if let attributes = super.layoutAttributesForItemAtIndexPath(indexPath)?.copy() as? UICollectionViewLayoutAttributes {
             switch self.delegate.pickerViewStyleForCollectionViewLayout(self) {
             case .Flat:
                 return attributes
