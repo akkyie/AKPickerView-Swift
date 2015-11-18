@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDelegate {
 
 	@IBOutlet var pickerView: AKPickerView!
+    @IBOutlet weak var leftArrow: UIButton!
+    @IBOutlet weak var rigthArrow: UIButton!
 
 	let titles = ["Tokyo", "Kanagawa", "Osaka", "Aichi", "Saitama", "Chiba", "Hyogo", "Hokkaido", "Fukuoka", "Shizuoka"]
 
@@ -21,8 +23,9 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 
 		self.pickerView.font = UIFont(name: "HelveticaNeue-Light", size: 20)!
 		self.pickerView.highlightedFont = UIFont(name: "HelveticaNeue", size: 20)!
-		self.pickerView.pickerViewStyle = .Wheel
+        self.pickerView.pickerViewStyle = .Flat
 		self.pickerView.maskDisabled = false
+        self.pickerView.highlightedTextColor = UIColor.blueColor()
 		self.pickerView.reloadData()
 	}
 
