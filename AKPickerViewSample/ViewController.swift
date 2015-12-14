@@ -21,8 +21,6 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 
 		self.pickerView.font = UIFont(name: "HelveticaNeue-Light", size: 20)!
 		self.pickerView.highlightedFont = UIFont(name: "HelveticaNeue", size: 20)!
-		self.pickerView.interitemSpacing = 20.0
-		self.pickerView.viewDepth = 1000.0
 		self.pickerView.pickerViewStyle = .Wheel
 		self.pickerView.maskDisabled = false
 		self.pickerView.reloadData()
@@ -53,7 +51,7 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 	// MARK: - AKPickerViewDelegate
 
 	func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
-		println("Your favorite city is \(self.titles[item])")
+		print("Your favorite city is \(self.titles[item])")
 	}
 
 	/*
