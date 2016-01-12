@@ -420,9 +420,13 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		self.invalidateIntrinsicContentSize()
 		self.collectionView.collectionViewLayout.invalidateLayout()
 		self.collectionView.reloadData()
-		if self.dataSource != nil && self.dataSource!.numberOfItemsInPickerView(self) > 0 {
-			self.selectItem(self.selectedItem, animated: false, notifySelection: false)
-		}
+    let count = self.dataSource!.numberOfItemsInPickerView(self)
+    if self.dataSource != nil && count > 0 {
+      if self.selectedItem >= count {
+        self.selectedItem = count - 1
+      }
+      self.selectItem(self.selectedItem, animated: false, notifySelection: false)
+    }
 	}
 
 	/**
