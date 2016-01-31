@@ -59,8 +59,8 @@ private class AKCollectionViewCell: UICollectionViewCell {
 	var imageView: UIImageView!
 	var font = UIFont.systemFontOfSize(UIFont.systemFontSize())
 	var highlightedFont = UIFont.systemFontOfSize(UIFont.systemFontSize())
-	var _selected: Bool = false {
-		didSet(selected) {
+	override var selected: Bool {
+		didSet {
 			let animation = CATransition()
 			animation.type = kCATransitionFade
 			animation.duration = 0.15
@@ -162,7 +162,7 @@ private class AKCollectionViewLayout: UICollectionViewFlowLayout {
                 return attributes;
             }
         }
-        
+
         return nil
 	}
 
@@ -534,7 +534,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		} else if let image = self.dataSource?.pickerView?(self, imageForItem: indexPath.item) {
 			cell.imageView.image = image
 		}
-		cell._selected = (indexPath.item == self.selectedItem)
+		cell.selected = (indexPath.item == self.selectedItem)
 		return cell
 	}
 
@@ -602,6 +602,4 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	private func pickerViewStyleForCollectionViewLayout(layout: AKCollectionViewLayout) -> AKPickerViewStyle {
 		return self.pickerViewStyle
 	}
-	
 }
-
