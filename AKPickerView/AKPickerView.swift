@@ -166,12 +166,12 @@ private class AKCollectionViewLayout: UICollectionViewFlowLayout {
         return nil
 	}
 
-	private func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
+	private override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
 		switch self.delegate.pickerViewStyleForCollectionViewLayout(self) {
 		case .Flat:
 			return super.layoutAttributesForElementsInRect(rect)
 		case .Wheel:
-			var attributes = [AnyObject]()
+			var attributes = [UICollectionViewLayoutAttributes]()
 			if self.collectionView!.numberOfSections() > 0 {
 				for i in 0 ..< self.collectionView!.numberOfItemsInSection(0) {
 					let indexPath = NSIndexPath(forItem: i, inSection: 0)
