@@ -251,6 +251,13 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 
 	/// Readwrite. A float value which indicates the spacing between cells.
 	@IBInspectable public var interitemSpacing: CGFloat = 0.0
+    
+    // Readwrite. A boolean that decides whether the component should bounce or not. True by default.
+    public var bounces = true {
+        didSet {
+            self.collectionView.bounces = self.bounces
+        }
+    }
 
 	/// Readwrite. The style of the picker view. See AKPickerViewStyle.
 	public var pickerViewStyle = AKPickerViewStyle.Wheel
