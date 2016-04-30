@@ -589,6 +589,10 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 			self.didEndScrolling()
 		}
 	}
+    
+    public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.delegate?.scrollViewWillBeginDragging?(scrollView)
+    }
 
 	public func scrollViewDidScroll(scrollView: UIScrollView) {
 		self.delegate?.scrollViewDidScroll?(scrollView)
