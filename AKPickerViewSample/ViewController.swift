@@ -21,14 +21,14 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 
 		self.pickerView.font = UIFont(name: "HelveticaNeue-Light", size: 20)!
 		self.pickerView.highlightedFont = UIFont(name: "HelveticaNeue", size: 20)!
-		self.pickerView.pickerViewStyle = .Wheel
+		self.pickerView.pickerViewStyle = .wheel
 		self.pickerView.maskDisabled = false
 		self.pickerView.reloadData()
 	}
 
 	// MARK: - AKPickerViewDataSource
 
-	func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int {
+	func numberOfItems(inPickerView pickerView: AKPickerView) -> Int {
 		return self.titles.count
 	}
 
@@ -40,19 +40,28 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 	uncomment '-pickerView:imageForItem:' to see how it works.
 
 	*/
-	func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
-		return self.titles[item]
-	}
-
-	func pickerView(pickerView: AKPickerView, imageForItem item: Int) -> UIImage {
-		return UIImage(named: self.titles[item])!
-	}
+//	func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
+//		return self.titles[item]
+//	}
+    
+    func titleForItem(inPickerView pickerView: AKPickerView, at index: Int) -> String {
+        return self.titles[index]
+    }
+    
+    func imageForItem(inPickerView pickerView: AKPickerView, at index: Int) -> UIImage? {
+        
+        guard let image = UIImage(named: self.titles[index]) else {
+            return nil
+        }
+        
+        return image
+    }
 
 	// MARK: - AKPickerViewDelegate
-
-	func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
-		print("Your favorite city is \(self.titles[item])")
-	}
+    
+    func didSelectItem(inPickerView pickerView: AKPickerView, at index: Int) {
+        print("Your favorite city is \(self.titles[index])")
+    }
 
 	/*
 
@@ -90,8 +99,7 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 
 	*/
 
-	func scrollViewDidScroll(scrollView: UIScrollView) {
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		// println("\(scrollView.contentOffset.x)")
 	}
-	
 }
