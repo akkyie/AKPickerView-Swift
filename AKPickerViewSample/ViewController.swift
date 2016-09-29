@@ -21,14 +21,14 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 
 		self.pickerView.font = UIFont(name: "HelveticaNeue-Light", size: 20)!
 		self.pickerView.highlightedFont = UIFont(name: "HelveticaNeue", size: 20)!
-		self.pickerView.pickerViewStyle = .Wheel
+		self.pickerView.pickerViewStyle = .wheel
 		self.pickerView.maskDisabled = false
 		self.pickerView.reloadData()
 	}
 
 	// MARK: - AKPickerViewDataSource
 
-	func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int {
+	func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
 		return self.titles.count
 	}
 
@@ -40,17 +40,17 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 	uncomment '-pickerView:imageForItem:' to see how it works.
 
 	*/
-	func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
+	func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
 		return self.titles[item]
 	}
 
-	func pickerView(pickerView: AKPickerView, imageForItem item: Int) -> UIImage {
+	func pickerView(_ pickerView: AKPickerView, imageForItem item: Int) -> UIImage {
 		return UIImage(named: self.titles[item])!
 	}
 
 	// MARK: - AKPickerViewDelegate
 
-	func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
+	func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
 		print("Your favorite city is \(self.titles[item])")
 	}
 
@@ -90,7 +90,7 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 
 	*/
 
-	func scrollViewDidScroll(scrollView: UIScrollView) {
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		// println("\(scrollView.contentOffset.x)")
 	}
 	
