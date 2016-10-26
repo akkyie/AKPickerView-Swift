@@ -37,6 +37,7 @@ and customize the appearance of labels.
 */
 @objc public protocol AKPickerViewDelegate: UIScrollViewDelegate {
 	optional func pickerView(pickerView: AKPickerView, didSelectItem item: Int)
+	optional func pickerView(pickerView: AKPickerView, didPressItem item: Int)
 	optional func pickerView(pickerView: AKPickerView, marginForItem item: Int) -> CGSize
 	optional func pickerView(pickerView: AKPickerView, configureLabel label: UILabel, forItem item: Int)
 }
@@ -283,6 +284,8 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 				}()
 		}
 	}
+
+	public var pressShouldFireSelectedEvent = true
 
 	// MARK: Readonly Properties
 	/// Readonly. Index of currently selected item.
@@ -574,7 +577,8 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 
 	// MARK: UICollectionViewDelegate
 	public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-		self.selectItem(indexPath.item, animated: true)
+		self.selectItem(indexPath.item, animated: true, notifySelection: self.pressShouldFireSelectedEvent)
+		self.delegate?.pickerView?(self, didPressItem: indexPath.item)
 	}
 
 	// MARK: UIScrollViewDelegate
