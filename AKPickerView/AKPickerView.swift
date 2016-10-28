@@ -94,7 +94,7 @@ public class AKCollectionViewCell: UICollectionViewCell {
 	}
 
 	init() {
-		super.init(frame: CGRectZero)
+		super.init(frame: CGRect.zero)
 		self.initialize()
 	}
 
@@ -103,7 +103,7 @@ public class AKCollectionViewCell: UICollectionViewCell {
 		self.initialize()
 	}
 
-	internal init!(coder aDecoder: NSCoder) {
+	required public init!(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.initialize()
 	}
@@ -120,7 +120,7 @@ private class AKCollectionViewLayout: UICollectionViewFlowLayout {
 	var maxAngle: CGFloat!
 
 	func initialize() {
-		self.sectionInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+		self.sectionInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
 		self.scrollDirection = .Horizontal
 		self.minimumLineSpacing = 0.0
 	}
@@ -137,9 +137,9 @@ private class AKCollectionViewLayout: UICollectionViewFlowLayout {
 
 	private override func prepareLayout() {
 		let visibleRect = CGRect(origin: self.collectionView!.contentOffset, size: self.collectionView!.bounds.size)
-		self.midX = CGRectGetMidX(visibleRect);
-		self.width = CGRectGetWidth(visibleRect) / 2;
-		self.maxAngle = CGFloat(M_PI_2);
+		self.midX = visibleRect.midX
+		self.width = visibleRect.width / 2
+		self.maxAngle = CGFloat(M_PI_2)
 	}
 
 	private override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
@@ -152,18 +152,18 @@ private class AKCollectionViewLayout: UICollectionViewFlowLayout {
             case .Flat:
                 return attributes
             case .Wheel:
-                let distance = CGRectGetMidX(attributes.frame) - self.midX;
-                let currentAngle = self.maxAngle * distance / self.width / CGFloat(M_PI_2);
-                var transform = CATransform3DIdentity;
-                transform = CATransform3DTranslate(transform, -distance, 0, -self.width);
-                transform = CATransform3DRotate(transform, currentAngle, 0, 1, 0);
-                transform = CATransform3DTranslate(transform, 0, 0, self.width);
-                attributes.transform3D = transform;
-                attributes.alpha = fabs(currentAngle) < self.maxAngle ? 1.0 : 0.0;
-                return attributes;
+                let distance = CGRectGetMidX(attributes.frame) - self.midX
+                let currentAngle = self.maxAngle * distance / self.width / CGFloat(M_PI_2)
+                var transform = CATransform3DIdentity
+                transform = CATransform3DTranslate(transform, -distance, 0, -self.width)
+                transform = CATransform3DRotate(transform, currentAngle, 0, 1, 0)
+                transform = CATransform3DTranslate(transform, 0, 0, self.width)
+                attributes.transform3D = transform
+                attributes.alpha = fabs(currentAngle) < self.maxAngle ? 1.0 : 0.0
+                return attributes
             }
         }
-        
+
         return nil
 	}
 
@@ -260,10 +260,10 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	@IBInspectable public var viewDepth: CGFloat = 1000.0 {
 		didSet {
 			self.collectionView.layer.sublayerTransform = self.viewDepth > 0.0 ? {
-				var transform = CATransform3DIdentity;
-				transform.m34 = -1.0 / self.viewDepth;
-				return transform;
-				}() : CATransform3DIdentity;
+				var transform = CATransform3DIdentity
+				transform.m34 = -1.0 / self.viewDepth
+				return transform
+				}() : CATransform3DIdentity
 		}
 	}
 	/// Readwrite. A boolean value indicates whether the mask is disabled.
@@ -278,8 +278,8 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 					UIColor.blackColor().CGColor,
 					UIColor.clearColor().CGColor]
 				maskLayer.locations = [0.0, 0.33, 0.66, 1.0]
-				maskLayer.startPoint = CGPointMake(0.0, 0.0)
-				maskLayer.endPoint = CGPointMake(1.0, 0.0)
+				maskLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+				maskLayer.endPoint = CGPoint(x: 1.0, y: 0.0)
 				return maskLayer
 				}()
 		}
@@ -299,7 +299,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 
 	// MARK: Private Properties
 	/// Private. A UICollectionView which shows contents on cells.
-	private var collectionView: UICollectionView!
+	public var collectionView: UICollectionView!
 	/// Private. An intercepter to hook UICollectionViewDelegate then throw it picker view and its delegate
 	private var intercepter: AKPickerViewDelegateIntercepter!
 	/// Private. A UICollectionViewFlowLayout used in picker view's collection view.
@@ -334,7 +334,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	}
 
 	public init() {
-		super.init(frame: CGRectZero)
+		super.init(frame: CGRect.zero)
 		self.initialize()
 	}
 
@@ -527,7 +527,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 			cell.label.font = self.font
 			cell.font = self.font
 			cell.highlightedFont = self.highlightedFont
-			cell.label.bounds = CGRect(origin: CGPointZero, size: self.sizeForString(title))
+			cell.label.bounds = CGRect(origin: CGPoint.zero, size: self.sizeForString(title))
 			if let delegate = self.delegate {
 				delegate.pickerView?(self, configureLabel: cell.label, forItem: indexPath.item)
 				if let margin = delegate.pickerView?(self, marginForItem: indexPath.item) {
@@ -606,6 +606,5 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	private func pickerViewStyleForCollectionViewLayout(layout: AKCollectionViewLayout) -> AKPickerViewStyle {
 		return self.pickerViewStyle
 	}
-	
-}
 
+}
