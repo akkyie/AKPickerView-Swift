@@ -55,9 +55,9 @@ private protocol AKCollectionViewLayoutDelegate {
 /**
 Private. A subclass of UICollectionViewCell used in AKPickerView's collection view.
 */
-private class AKCollectionViewCell: UICollectionViewCell {
+public class AKCollectionViewCell: UICollectionViewCell {
 	var label: UILabel!
-	var imageView: UIImageView!
+	public var imageView: UIImageView!
 	var font = UIFont.systemFontOfSize(UIFont.systemFontSize())
 	var highlightedFont = UIFont.systemFontOfSize(UIFont.systemFontSize())
 	var _selected: Bool = false {
@@ -103,7 +103,7 @@ private class AKCollectionViewCell: UICollectionViewCell {
 		self.initialize()
 	}
 
-	required init!(coder aDecoder: NSCoder) {
+	internal init!(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.initialize()
 	}
