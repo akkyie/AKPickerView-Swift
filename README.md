@@ -82,11 +82,14 @@ Usage
   self.pickerView.reloadData()
   ```
 
-1. Optional: You can use `AKPickerViewDelegate` methods to observe selection changes:
+1. Optional: You can use `AKPickerViewDelegate` methods to observe selection changes and single taps:
   ```swift
   func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {}
+  func pickerView(pickerView: AKPickerView, didPressItem item: Int) {}
   ```
-  Additionally, you can also use `UIScrollViewDelegate` methods to observe scrolling.
+2. Optional: If you would like to disable `didSelectItem` delegate calls when an item is single tapped, you can do so by setting the `var pressShouldFireSelectedEvent` to `false`.
+
+Additionally, you can also use `UIScrollViewDelegate` methods to observe scrolling.
 
 For more detail, see the sample project.
 

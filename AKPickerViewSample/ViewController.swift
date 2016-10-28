@@ -53,7 +53,9 @@ class ViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDele
 	func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
 		print("Your favorite city is \(self.titles[item])")
 	}
-
+	func pickerView(pickerView: AKPickerView, didPressItem item: Int) {
+		print("You pressed city: \(self.titles[item])")
+	}
 	/*
 
 	Label Customization
