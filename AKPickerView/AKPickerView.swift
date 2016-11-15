@@ -233,7 +233,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	public weak var dataSource: AKPickerViewDataSource? = nil
 	/// Readwrite. Delegate of picker view.
 	public weak var delegate: AKPickerViewDelegate? = nil {
-		didSet(delegate) {
+		didSet {
 			self.intercepter.delegate = delegate
 		}
 	}
