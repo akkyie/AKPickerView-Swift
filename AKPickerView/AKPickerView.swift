@@ -181,6 +181,20 @@ private class AKCollectionViewLayout: UICollectionViewFlowLayout {
 			return attributes
 		}
 	}
+    
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        var offsetAdjustment: CGFloat = CGFloat.greatestFiniteMagnitude
+        let horizontalCenter: CGFloat = proposedContentOffset.x + (self.collectionView!.bounds.width / 2.0)
+        let targetRect = CGRect(x: proposedContentOffset.x, y: 0.0, width: self.collectionView!.bounds.size.width, height: self.collectionView!.bounds.size.height)
+        let array:[UICollectionViewLayoutAttributes] = self.layoutAttributesForElements(in: targetRect)!
+        for layoutAttributes: UICollectionViewLayoutAttributes in array {
+            let itemHorizontalCenter: CGFloat = layoutAttributes.center.x
+            if abs(itemHorizontalCenter - horizontalCenter) < abs(offsetAdjustment) {
+                offsetAdjustment = itemHorizontalCenter - horizontalCenter
+            }
+        }
+        return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
+    }
 
 }
 
