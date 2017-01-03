@@ -20,7 +20,7 @@ pod "AKPickerView-Swift"
 ```
 And in your `*.swift`:
 ```swift
-import AKPickerView_Swift
+import AKPickerView
 ```
 
 ###[Carthage](https://github.com/Carthage/Carthage):
