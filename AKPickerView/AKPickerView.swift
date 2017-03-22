@@ -59,16 +59,31 @@ private class AKCollectionViewCell: UICollectionViewCell {
 	var imageView: UIImageView!
 	var font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
 	var highlightedFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
-	var _selected: Bool = false {
-		didSet(selected) {
-			let animation = CATransition()
-			animation.type = kCATransitionFade
-			animation.duration = 0.15
-			self.label.layer.add(animation, forKey: "")
-			self.label.font = self.isSelected ? self.highlightedFont : self.font
-		}
-	}
-
+    var highlightedStringAttributes: [String : Any]?
+    var stringAttributes: [String : Any]?
+    
+    override var isSelected: Bool  {
+        didSet(selected) {
+            let animation = CATransition()
+            animation.type = kCATransitionFade
+            animation.duration = 0.15
+            self.label.layer.add(animation, forKey: "")
+            if (selected) {
+                self.label.font = self.highlightedFont
+                guard let text = self.label.text, let attributes = self.highlightedStringAttributes else {
+                    return
+                }
+                self.label.attributedText = NSAttributedString(string: text, attributes: attributes)
+            } else {
+                self.label.font = self.font
+                guard let text = self.label.text, let attributes = self.stringAttributes else {
+                    return
+                }
+                self.label.attributedText = NSAttributedString(string: text, attributes: attributes)
+            }
+        }
+    }
+    
 	func initialize() {
 		self.layer.isDoubleSided = false
 		self.layer.shouldRasterize = true
@@ -249,6 +264,12 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 	/// Readwrite. A color of the text on selected cells.
 	@IBInspectable public lazy var highlightedTextColor: UIColor = UIColor.black
 
+    /// Readwrite. An attribute which used in selected cells.
+    public var highlightedStringAttributes: [String : Any]?
+    
+    /// Readwrite. An attribute which used in NOT selected cells.
+    public var stringAttributes: [String : Any]?
+    
 	/// Readwrite. A float value which indicates the spacing between cells.
 	@IBInspectable public var interitemSpacing: CGFloat = 0.0
 
@@ -524,6 +545,8 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 			cell.label.font = self.font
 			cell.font = self.font
 			cell.highlightedFont = self.highlightedFont
+            cell.highlightedStringAttributes = self.highlightedStringAttributes
+            cell.stringAttributes = self.stringAttributes
 			cell.label.bounds = CGRect(origin: CGPoint.zero, size: self.sizeForString(title as NSString))
 			if let delegate = self.delegate {
 				delegate.pickerView?(self, configureLabel: cell.label, forItem: indexPath.item)
@@ -534,7 +557,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
 		} else if let image = self.dataSource?.pickerView?(self, imageForItem: indexPath.item) {
 			cell.imageView.image = image
 		}
-		cell._selected = (indexPath.item == self.selectedItem)
+		cell.isSelected = (indexPath.item == self.selectedItem)
 		return cell
 	}
 
