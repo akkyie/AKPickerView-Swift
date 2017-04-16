@@ -13,7 +13,7 @@ Works on iOS 7 and 8.
 Installation
 ------------
 
-###[CocoaPods](http://cocoapods.org/):
+### [CocoaPods](http://cocoapods.org/):
 In your `Podfile`:
 ```
 pod "AKPickerView-Swift"
@@ -23,7 +23,7 @@ And in your `*.swift`:
 import AKPickerView_Swift
 ```
 
-###[Carthage](https://github.com/Carthage/Carthage):
+### [Carthage](https://github.com/Carthage/Carthage):
 In your `Cartfile`:
 ```
 github "Akkyie/AKPickerView-Swift"
@@ -33,7 +33,7 @@ And in your `*.swift`:
 import AKPickerView
 ```
 
-###Manual Install
+### Manual Install
 Add `AKPickerView.swift` into your Xcode project.
 
 Usage
